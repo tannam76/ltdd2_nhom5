@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -50, "left": 170, "attrs": { "temperature": "24", "humidity": "55" } },
+    { "type": "wokwi-potentiometer", "id": "pot", "top": 155, "left": -150, "attrs": { "value": "0" } },
+    { "type": "wokwi-relay-module", "id": "relay", "top": 145, "left": 180, "attrs": {} },
+    { "type": "wokwi-led", "id": "red", "top": -50, "left": -125, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "blue", "top": 125, "left": 385, "attrs": { "color": "blue" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 13, "left": -100, "attrs": { "value": "330" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 190, "left": 320, "attrs": { "value": "330" } }
+  ],
+  "connections": [
+    ["esp:3V3", "dht:VCC", "red", []],
+    ["esp:GND.1", "dht:GND", "black", []],
+    ["esp:D14", "dht:SDA", "green", []],
+    ["esp:3V3", "pot:VCC", "red", []],
+    ["esp:GND.1", "pot:GND", "black", []],
+    ["esp:D34", "pot:SIG", "orange", []],
+    ["esp:D26", "r1:1", "green", []],
+    ["r1:2", "red:A", "green", []],
+    ["red:C", "esp:GND.1", "black", []],
+    ["esp:VIN", "relay:VCC", "red", []],
+    ["esp:GND.1", "relay:GND", "black", []],
+    ["esp:D22", "relay:IN", "purple", []],
+    ["esp:3V3", "relay:COM", "red", []],
+    ["relay:NO", "r2:1", "blue", []],
+    ["r2:2", "blue:A", "blue", []],
+    ["blue:C", "esp:GND.1", "black", []]
+  ]
+}

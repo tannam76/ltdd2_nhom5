@@ -1,1 +1,1 @@
-DHT sensor library for ESPx
+DHT sensor library
