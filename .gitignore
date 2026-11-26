@@ -1,0 +1,9 @@
+node_modules/
+app/.expo/
+app/dist/
+app/.claude/
+dist/
+*.log
+.env
+.env.*
+!.env.example
